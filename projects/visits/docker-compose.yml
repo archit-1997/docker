@@ -1,0 +1,18 @@
+# version of the docker compose that we're trying to use
+version: '3'
+
+# what all stuff we want the docker compose to do
+services:
+    redis-server:
+        #specifying which image of redis server we want docker compose to use
+        image: 'redis'
+    node-app:
+        restart: always
+        #want to be built using the Dokcker file in the current directory
+        build: .
+        ports:
+            #array in a .yml file is specified by a -
+            # technically we can have many different ports inside of a single docker compose file for a single service or container
+
+            # my local machine : inside the container
+            - '8081:8081'
